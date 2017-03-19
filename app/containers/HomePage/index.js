@@ -12,13 +12,26 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import { NavBar, Main, Footer } from '../../components/common'
+import { Grid, Row } from 'react-bootstrap'
+import styles from './styles'
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div className='home-page-container'>
+        <Grid style={styles.container}>
+          <Row className='home-nav'>
+            <NavBar />
+          </Row>
+          <Row className='home-content'>
+            <Main />
+          </Row>
+          <Row className='home-footer'>
+            <Footer />
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
