@@ -1,19 +1,18 @@
-import React, { PropTypes } from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import React, { PropTypes } from 'react';
+import { Grid, Col } from 'react-bootstrap';
 
-const MainContent = (props) => {
-  return (
-    <main>
-      <Grid>
-        <Col md={8}>
-          Hey
-        </Col>
-        <Col md={4}>
-          Hi
-        </Col>
-      </Grid>
-    </main>
-  )
-}
+const MainContent = ({ children }) => (
+  <main>
+    <Grid>
+      <Col md={12}>
+        { React.Children.toArray(children) }
+      </Col>
+    </Grid>
+  </main>
+);
 
-export default MainContent
+MainContent.propTypes = {
+  children: PropTypes.any,
+};
+
+export default MainContent;
